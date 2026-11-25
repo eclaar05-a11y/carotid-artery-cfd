@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vascular CFD Simulation | Engineering Project</title>
+
+<style>
+:root {
+  --navy: #101c30;
+  --blue: #2686d9;
+  --light: #f3f6fa;
+  --text: #263449;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  line-height: 1.7;
+  background: white;
+}
+
+header {
+  background: var(--navy);
+  color: white;
+  padding: 90px 8%;
+}
+
+header h1 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  line-height: 1.15;
+  max-width: 850px;
+}
+
+header p {
+  color: #c8d7e8;
+  font-size: 1.15rem;
+  max-width: 700px;
+}
+
+.tag {
+  color: #70baff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+nav {
+  background: #172943;
+  padding: 15px 8%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 24px;
+  font-size: 0.9rem;
+}
+
+nav a:hover { color: #70baff; }
+
+section {
+  padding: 65px 8%;
+  max-width: 1250px;
+  margin: auto;
+}
+
+section:nth-of-type(even) {
+  background: var(--light);
+  max-width: none;
+}
+
+section h2 {
+  color: var(--navy);
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 22px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px #10204012;
+}
+
+.card h3 { color: var(--blue); }
+
+.placeholder {
+  background: #e1e9f2;
+  color: #52657c;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.stat {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--blue);
+}
+
+a { color: var(--blue); }
+
+footer {
+  background: var(--navy);
+  color: #c8d7e8;
+  padding: 35px 8%;
+  text-align: center;
+}
+
+video {
+  width: 100%;
+  border-radius: 8px;
+  background: #101c30;
+}
+
+@media(max-width: 650px) {
+  nav a { display: inline-block; margin: 5px 12px 5px 0; }
+  header { padding: 60px 7%; }
+  section { padding: 45px 7%; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="tag">Biomechanical Engineering | CFD Research</div>
+  <h1>Computational Fluid Dynamics of Pulsatile Blood Flow</h1>
+  <p>
+    A cardiovascular simulation project investigating pressure,
+    velocity, and wall shear stress throughout the cardiac cycle.
+  </p>
+  <p>Stanford University | CME/BioE 285 | Fall 2026</p>
+</header>
+
+<nav>
+  <a href="#overview">Overview</a>
+  <a href="#methods">Methods</a>
+  <a href="#convergence">Convergence</a>
+  <a href="#results">Results</a>
+  <a href="#animations">Animations</a>
+  <a href="#discussion">Discussion</a>
+</nav>
+
+<section id="overview">
+  <h2>Project Overview</h2>
+  <p>
+    This project uses computational fluid dynamics to investigate
+    pulsatile blood flow through a three-dimensional vascular model.
+    The simulation examines the relationship between cardiac-cycle
+    dynamics and important hemodynamic quantities, including pressure,
+    velocity, and wall shear stress.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <h3>Objective</h3>
+      <p>Visualize and analyze time-dependent cardiovascular flow.</p>
+    </div>
+    <div class="card">
+      <h3>Simulation</h3>
+      <p>Three-dimensional CFD using SimVascular and svMultiPhysics.</p>
+    </div>
+    <div class="card">
+      <h3>Analysis</h3>
+      <p>Pressure, flow, velocity, wall shear stress, and periodic convergence.</p>
+    </div>
+  </div>
+</section>
+
+<section id="methods">
+  <h2>Methods and Computational Model</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Geometry and Mesh</h3>
+      <p>
+        A three-dimensional vascular geometry was prepared for
+        computational simulation and visualization.
+      </p>
+      <div class="placeholder">3D vascular model image</div>
+    </div>
+    <div class="card">
+      <h3>Boundary Conditions</h3>
+      <p>
+        Pulsatile flow and outlet boundary conditions were applied
+        to represent time-dependent cardiovascular flow.
+      </p>
+      <div class="placeholder">Boundary condition diagram</div>
+    </div>
+    <div class="card">
+      <h3>Numerical Simulation</h3>
+      <p>
+        The simulation was performed using svMultiPhysics on the
+        Expanse high-performance computing cluster.
+      </p>
+      <div class="placeholder">Computational mesh image</div>
+    </div>
+  </div>
+</section>
+
+<section id="convergence">
+  <h2>Cycle-to-Cycle Convergence</h2>
+  <p>
+    Periodic convergence was evaluated by comparing pressure and
+    flow results between successive cardiac cycles.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <div class="stat">0.004%</div>
+      <p>Maximum relative L2 pressure difference, cycles 2 and 3.</p>
+    </div>
+    <div class="card">
+      <div class="stat">0.0004%</div>
+      <p>Maximum relative L2 flow-flux difference, cycles 2 and 3.</p>
+    </div>
+  </div>
+  <p>
+    The results indicate that the simulation reached periodic
+    convergence by the third cardiac cycle under the selected
+    comparison criterion.
+  </p>
+  <div class="placeholder">Insert cycle-to-cycle convergence graph</div>
+</section>
+
+<section id="results">
+  <h2>Hemodynamic Results</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Pressure</h3>
+      <div class="placeholder">Pressure distribution image</div>
+    </div>
+    <div class="card">
+      <h3>Velocity</h3>
+      <div class="placeholder">Velocity magnitude image</div>
+    </div>
+    <div class="card">
+      <h3>Wall Shear Stress</h3>
+      <div class="placeholder">WSS distribution image</div>
+    </div>
+  </div>
+</section>
+
+<section id="animations">
+  <h2>Time-Dependent Flow Animations</h2>
+  <p>
+    The following visualizations are intended to show changes in
+    hemodynamic quantities throughout the final eight cardiac cycles.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <h3>Pressure Animation</h3>
+      <p>Time-dependent pressure distribution.</p>
+      <p>Video will be added here.</p>
+    </div>
+    <div class="card">
+      <h3>Velocity Animation</h3>
+      <p>Time-dependent blood velocity magnitude.</p>
+      <p>Video will be added here.</p>
+    </div>
+    <div class="card">
+      <h3>Wall Shear Stress Animation</h3>
+      <p>Time-dependent wall shear stress distribution.</p>
+      <p>Video will be added here.</p>
+    </div>
+  </div>
+</section>
+
+<section id="discussion">
+  <h2>Discussion and Conclusions</h2>
+  <p>
+    The computational model provides a framework for examining
+    pulsatile cardiovascular hemodynamics. The time-dependent
+    pressure, velocity, and wall shear stress fields allow
+    visualization of flow behavior throughout the cardiac cycle.
+  </p>
+  <p>
+    Cycle-to-cycle comparisons indicate periodic convergence
+    of the simulated solution. Further analysis may investigate
+    spatial variations in wall shear stress, flow distribution,
+    and the influence of boundary conditions.
+  </p>
+</section>
+
+<footer>
+  <p>Stanford University | Biomechanical Engineering</p>
+  <p>CME/BioE 285 — Fall 2026</p>
+</footer>
+
+</body>
+</html>
